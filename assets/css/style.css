@@ -163,12 +163,12 @@ section { position: relative; }
   gap: 12px;
 }
 .brand-logo {
-  width: 44px;
-  height: 44px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #fff;
-  padding: 3px;
+  padding: 4px;
   box-shadow: var(--shadow-sm);
 }
 .brand-text {
@@ -266,8 +266,8 @@ section { position: relative; }
   display: flex;
   align-items: center;
   overflow: hidden;
-  margin-top: -84px;
-  padding-top: 84px;
+  margin-top: -96px;
+  padding-top: 96px;
   background: var(--dark);
 }
 .hero-video {
@@ -282,8 +282,8 @@ section { position: relative; }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(15,15,16,0.75) 0%, rgba(15,15,16,0.35) 35%, rgba(15,15,16,0.55) 75%, rgba(15,15,16,0.92) 100%),
-    linear-gradient(90deg, rgba(15,15,16,0.55) 0%, rgba(15,15,16,0.15) 45%, rgba(15,15,16,0.15) 55%, rgba(15,15,16,0.55) 100%);
+    linear-gradient(180deg, rgba(15,15,16,0.5) 0%, rgba(15,15,16,0.16) 35%, rgba(15,15,16,0.3) 75%, rgba(15,15,16,0.68) 100%),
+    linear-gradient(90deg, rgba(15,15,16,0.35) 0%, rgba(15,15,16,0.05) 45%, rgba(15,15,16,0.05) 55%, rgba(15,15,16,0.35) 100%);
   z-index: 1;
 }
 .hero-content {
@@ -845,7 +845,7 @@ section.about { padding: 110px 0 60px; }
   .footer-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .contact-form { padding: 26px; }
-  .hero { margin-top: -76px; padding-top: 76px; }
+  .hero { margin-top: -92px; padding-top: 92px; }
   .header-inner { padding: 14px 20px; }
   .brand-text { font-size: 0.92rem; }
 }
