@@ -103,8 +103,43 @@ document.addEventListener('DOMContentLoaded', function () {
       var amount = card ? (card.getBoundingClientRect().width + 20) * 2 : 300;
       reviewsCarousel.scrollBy({ left: dir * amount, behavior: 'smooth' });
     };
-    reviewsPrev.addEventListener('click', function () { scrollByCards(-1); });
-    reviewsNext.addEventListener('click', function () { scrollByCards(1); });
+
+    var autoplayDelay = 3200;
+    var autoplayTimer = null;
+    function advanceAutoplay() {
+      var card = reviewsCarousel.querySelector('.review-card');
+      var step = card ? card.getBoundingClientRect().width + 20 : 300;
+      var atEnd = reviewsCarousel.scrollLeft + reviewsCarousel.clientWidth >= reviewsCarousel.scrollWidth - 4;
+      if (atEnd) {
+        reviewsCarousel.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        reviewsCarousel.scrollBy({ left: step, behavior: 'smooth' });
+      }
+    }
+    function startAutoplay() {
+      stopAutoplay();
+      autoplayTimer = setInterval(advanceAutoplay, autoplayDelay);
+    }
+    function stopAutoplay() {
+      if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; }
+    }
+    function restartAutoplay() { stopAutoplay(); startAutoplay(); }
+
+    reviewsCarousel.addEventListener('mouseenter', stopAutoplay);
+    reviewsCarousel.addEventListener('mouseleave', startAutoplay);
+    reviewsCarousel.addEventListener('touchstart', stopAutoplay, { passive: true });
+    reviewsCarousel.addEventListener('touchend', function () { setTimeout(startAutoplay, 2500); });
+
+    var reviewsIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) startAutoplay();
+        else stopAutoplay();
+      });
+    }, { threshold: 0.3 });
+    reviewsIo.observe(reviewsCarousel);
+
+    reviewsPrev.addEventListener('click', function () { scrollByCards(-1); restartAutoplay(); });
+    reviewsNext.addEventListener('click', function () { scrollByCards(1); restartAutoplay(); });
   }
 
   /* ---------- "Alle Projekte anzeigen" toggle ---------- */
