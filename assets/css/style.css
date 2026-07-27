@@ -387,45 +387,41 @@ section { position: relative; }
 section.services, section.gallery, section.testimonials, section.contact {
   padding: 110px 0;
 }
-section.about { padding: 110px 0 60px; }
 .partners { padding: 60px 0 100px; }
 
-/* ---------- About ---------- */
-.about-grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 70px;
-  align-items: center;
-}
-.about-media {
+/* ---------- About (parallax) ---------- */
+section.about { padding: 0; }
+.about { position: relative; overflow: hidden; }
+.about-parallax {
+  height: 78vh;
+  min-height: 460px;
+  background-image: url('../img/team.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  background-attachment: fixed;
   position: relative;
-  padding-bottom: 40px;
-  padding-right: 40px;
 }
-.about-img-main {
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  width: 100%;
-  aspect-ratio: 4/3.1;
-  object-fit: cover;
-}
-.about-img-float {
+.about-parallax-overlay {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 58%;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow);
-  border: 6px solid var(--cream);
-  aspect-ratio: 16/10;
-  object-fit: cover;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(28,23,39,0.12) 0%, rgba(28,23,39,0.08) 55%, rgba(28,23,39,0.4) 100%);
+}
+.about-panel {
+  position: relative;
+  z-index: 2;
+  margin-top: -140px;
+  background: var(--cream);
+  border-radius: 32px 32px 0 0;
+  box-shadow: 0 -25px 60px rgba(20,16,28,0.18);
+  padding: 76px 0 90px;
 }
 .about-logo-badge {
   position: absolute;
-  top: -22px;
-  left: -22px;
-  width: 108px;
-  height: 108px;
+  top: -46px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 96px;
+  height: 96px;
   object-fit: contain;
   border-radius: 18px;
   box-shadow: var(--shadow);
@@ -433,7 +429,15 @@ section.about { padding: 110px 0 60px; }
   padding: 6px;
   z-index: 3;
 }
+.about-panel-inner { max-width: 880px; margin: 0 auto; text-align: center; }
+@media (hover: none) and (pointer: coarse) {
+  .about-parallax { background-attachment: scroll; }
+}
+.about-copy .eyebrow { justify-content: center; }
 .about-copy h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
+.about-copy p { text-align: left; }
+.check-list { text-align: left; max-width: 620px; margin-left: auto; margin-right: auto; }
+.about-copy > .btn { display: inline-flex; }
 .check-list {
   list-style: none;
   padding: 0;
@@ -812,10 +816,13 @@ section.about { padding: 110px 0 60px; }
   .gallery-item:nth-child(1) { grid-column: span 4; grid-row: span 3; }
   .gallery-item:nth-child(4) { grid-column: span 2; grid-row: span 2; }
   .gallery-item:nth-child(7) { grid-column: span 4; grid-row: span 2; }
-  .about-grid { grid-template-columns: 1fr; }
-  .about-media { max-width: 480px; margin: 0 auto; }
-  .about-logo-badge { width: 84px; height: 84px; top: -16px; left: -16px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 780px) {
+  .about-parallax { background-attachment: scroll; height: 46vh; min-height: 280px; }
+  .about-panel { margin-top: -70px; border-radius: 24px 24px 0 0; padding: 60px 0 70px; }
+  .about-logo-badge { width: 72px; height: 72px; top: -36px; }
 }
 
 @media (max-width: 900px) {
