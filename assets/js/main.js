@@ -74,6 +74,35 @@ document.addEventListener('DOMContentLoaded', function () {
   }, { threshold: 0.5 });
   statNums.forEach(function (el) { statIo.observe(el); });
 
+  /* ---------- Service accordions ---------- */
+  document.querySelectorAll('.service-toggle').forEach(function (btn) {
+    var panel = btn.closest('.service-row').querySelector('.service-panel');
+    btn.addEventListener('click', function () {
+      var willOpen = !panel.classList.contains('open');
+      document.querySelectorAll('.service-panel.open').forEach(function (p) {
+        if (p !== panel) {
+          p.classList.remove('open');
+          var otherBtn = p.closest('.service-row').querySelector('.service-toggle');
+          otherBtn.setAttribute('aria-expanded', 'false');
+          otherBtn.querySelector('.service-toggle-text').textContent = 'Projektbilder ansehen';
+        }
+      });
+      panel.classList.toggle('open', willOpen);
+      btn.setAttribute('aria-expanded', String(willOpen));
+      btn.querySelector('.service-toggle-text').textContent = willOpen ? 'Projektbilder ausblenden' : 'Projektbilder ansehen';
+    });
+  });
+
+  /* ---------- "Alle Projekte anzeigen" toggle ---------- */
+  var galleryMoreToggle = document.getElementById('galleryMoreToggle');
+  var galleryAll = document.getElementById('galleryAll');
+  galleryMoreToggle.addEventListener('click', function () {
+    var willOpen = !galleryAll.classList.contains('open');
+    galleryAll.classList.toggle('open', willOpen);
+    galleryMoreToggle.setAttribute('aria-expanded', String(willOpen));
+    galleryMoreToggle.querySelector('.service-toggle-text').textContent = willOpen ? 'Weniger anzeigen' : 'Alle Projekte anzeigen';
+  });
+
   /* ---------- Gallery lightbox ---------- */
   var galleryItems = Array.prototype.slice.call(document.querySelectorAll('.gallery-item'));
   var lightbox = document.getElementById('lightbox');
