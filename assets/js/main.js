@@ -93,6 +93,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  /* ---------- Reviews carousel ---------- */
+  var reviewsCarousel = document.getElementById('reviewsCarousel');
+  var reviewsPrev = document.getElementById('reviewsPrev');
+  var reviewsNext = document.getElementById('reviewsNext');
+  if (reviewsCarousel && reviewsPrev && reviewsNext) {
+    var scrollByCards = function (dir) {
+      var card = reviewsCarousel.querySelector('.review-card');
+      var amount = card ? (card.getBoundingClientRect().width + 20) * 2 : 300;
+      reviewsCarousel.scrollBy({ left: dir * amount, behavior: 'smooth' });
+    };
+    reviewsPrev.addEventListener('click', function () { scrollByCards(-1); });
+    reviewsNext.addEventListener('click', function () { scrollByCards(1); });
+  }
+
   /* ---------- "Alle Projekte anzeigen" toggle ---------- */
   var galleryMoreToggle = document.getElementById('galleryMoreToggle');
   var galleryAll = document.getElementById('galleryAll');

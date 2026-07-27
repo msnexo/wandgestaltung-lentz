@@ -672,33 +672,119 @@ section.about { padding: 0; }
 }
 .gallery-item:hover::after { background: rgba(23,24,27,0.12); }
 
-/* ---------- Testimonials ---------- */
+/* ---------- Testimonials (Google reviews) ---------- */
 .testimonials { background: var(--cream-2); }
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
+
+.reviews-summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 40px;
 }
-.testimonial {
+.reviews-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--paper);
+  border-radius: var(--radius-sm);
+  padding: 14px 22px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+a.reviews-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.reviews-badge-static { opacity: 0.9; }
+.google-g { width: 26px; height: 26px; flex-shrink: 0; }
+.reviews-badge-text { display: flex; flex-direction: column; gap: 1px; }
+.reviews-badge-text strong { font-size: 0.95rem; color: var(--text); }
+.reviews-stars { color: #FBBC05; font-size: 0.85rem; letter-spacing: 1px; }
+.reviews-count { font-size: 0.8rem; color: var(--text-muted); }
+
+.reviews-carousel-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.reviews-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding: 4px 4px 16px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--lilac) transparent;
+}
+.review-card {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
   background: var(--paper);
   border-radius: var(--radius);
-  padding: 34px 34px 28px;
-  margin: 0;
+  padding: 24px;
   box-shadow: var(--shadow-sm);
-  position: relative;
+  display: flex;
+  flex-direction: column;
 }
-.testimonial p {
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
+.review-card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.review-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.review-card-id { display: flex; flex-direction: column; min-width: 0; }
+.review-card-id strong {
+  font-size: 0.92rem;
   color: var(--text);
-  margin-bottom: 0.7em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.testimonial cite {
-  font-style: normal;
-  font-size: 0.88rem;
-  color: var(--accent);
-  font-weight: 600;
+.review-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
+.review-stars { color: #FBBC05; letter-spacing: 1px; }
+.review-card p {
+  font-size: 0.92rem;
+  color: var(--text);
+  margin-bottom: 0;
+  line-height: 1.55;
+}
+.reviews-nav {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: var(--paper);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.reviews-nav:hover { background: var(--accent); color: #fff; }
+.reviews-more { text-align: center; margin: 30px 0 0; }
+.reviews-more a { font-weight: 600; color: var(--accent); }
+.reviews-more a:hover { color: var(--accent-2); }
 
 /* ---------- Partners ---------- */
 .partners-label {
@@ -970,11 +1056,12 @@ section.about { padding: 0; }
   .nav-toggle { display: flex; }
   .header-actions .btn-accent { display: none; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); row-gap: 30px; }
-  .testimonial-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; gap: 44px; }
   .mobile-call-bar { display: block; }
   body { padding-bottom: 54px; }
   section.services, section.gallery, section.testimonials, section.contact { padding: 80px 0; }
+  .review-card { flex-basis: 260px; }
+  .reviews-nav { display: none; }
 }
 
 @media (max-width: 640px) {
