@@ -420,6 +420,19 @@ section.about { padding: 110px 0 60px; }
   aspect-ratio: 16/10;
   object-fit: cover;
 }
+.about-logo-badge {
+  position: absolute;
+  top: -22px;
+  left: -22px;
+  width: 108px;
+  height: 108px;
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  background: #fff;
+  padding: 6px;
+  z-index: 3;
+}
 .about-copy h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
 .check-list {
   list-style: none;
@@ -688,6 +701,8 @@ section.about { padding: 110px 0 60px; }
   color: rgba(247,244,238,0.75);
   padding-top: 70px;
 }
+.footer-brand .brand-logo { width: 112px; height: 112px; border-radius: 16px; }
+.footer-brand .brand { align-items: center; }
 .footer-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr 1fr;
@@ -799,6 +814,7 @@ section.about { padding: 110px 0 60px; }
   .gallery-item:nth-child(7) { grid-column: span 4; grid-row: span 2; }
   .about-grid { grid-template-columns: 1fr; }
   .about-media { max-width: 480px; margin: 0 auto; }
+  .about-logo-badge { width: 84px; height: 84px; top: -16px; left: -16px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
