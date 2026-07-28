@@ -387,7 +387,7 @@ section { position: relative; }
 section.services, section.gallery, section.testimonials, section.contact {
   padding: 110px 0;
 }
-.partners { padding: 60px 0 100px; }
+.partners { padding: 60px 0 100px; background: var(--paper); }
 
 /* ---------- About (parallax) ---------- */
 section.about { padding: 0; }
