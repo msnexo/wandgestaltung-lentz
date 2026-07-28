@@ -795,17 +795,13 @@ a.reviews-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow); 
   color: var(--text-muted);
   margin-bottom: 26px;
 }
-.partners-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 14px 36px;
-}
-.partners-row span {
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
-  color: var(--text-muted);
-  opacity: 0.75;
+.partners-logos {
+  display: block;
+  max-width: 720px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  opacity: 0.9;
 }
 
 /* ---------- Contact ---------- */
