@@ -462,16 +462,16 @@ section.about { padding: 0; }
 }
 .about-logo-badge {
   position: absolute;
-  top: -46px;
+  top: -68px;
   left: 50%;
   transform: translateX(-50%);
-  width: 96px;
-  height: 96px;
+  width: 140px;
+  height: 140px;
   object-fit: contain;
-  border-radius: 18px;
+  border-radius: 22px;
   box-shadow: var(--shadow);
   background: #fff;
-  padding: 6px;
+  padding: 8px;
   z-index: 3;
 }
 .about-panel-inner { max-width: 880px; margin: 0 auto; text-align: center; }
@@ -1090,8 +1090,8 @@ a.reviews-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow); 
 
 @media (max-width: 780px) {
   .about-parallax { background-attachment: scroll; height: 46vh; min-height: 280px; }
-  .about-panel { margin-top: -70px; border-radius: 24px 24px 0 0; padding: 60px 0 70px; }
-  .about-logo-badge { width: 72px; height: 72px; top: -36px; }
+  .about-panel { margin-top: -70px; border-radius: 24px 24px 0 0; padding: 74px 0 70px; }
+  .about-logo-badge { width: 100px; height: 100px; top: -50px; }
 }
 
 @media (max-width: 900px) {
