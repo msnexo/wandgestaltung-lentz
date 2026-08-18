@@ -455,7 +455,7 @@ section.about { padding: 0; }
   position: relative;
   z-index: 2;
   margin-top: -140px;
-  background: var(--cream);
+  background: #f2f0f4;
   border-radius: 32px 32px 0 0;
   box-shadow: 0 -25px 60px rgba(20,16,28,0.18);
   padding: 76px 0 90px;
