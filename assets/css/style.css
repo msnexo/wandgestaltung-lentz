@@ -393,13 +393,10 @@ section.services, section.gallery, section.testimonials, section.contact {
 section.team { padding: 100px 0 110px; background: var(--paper); }
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px 24px;
 }
 .team-card { text-align: center; }
-.team-card-lead { grid-column: span 2; grid-row: span 2; }
-.team-card-lead .team-photo { aspect-ratio: 4/5; }
-.team-card-lead h3 { font-size: 1.3rem; }
 .team-photo {
   aspect-ratio: 4/5;
   border-radius: var(--radius);
@@ -411,6 +408,7 @@ section.team { padding: 100px 0 110px; background: var(--paper); }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%;
   transition: transform 0.5s ease;
 }
 .team-card:hover .team-photo img { transform: scale(1.06); }
@@ -426,6 +424,29 @@ section.team { padding: 100px 0 110px; background: var(--paper); }
   color: #fff;
   opacity: 0.9;
 }
+.team-photo-hiring {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: linear-gradient(150deg, var(--dark), var(--dark-2));
+  border: 1.5px dashed rgba(255,255,255,0.25);
+}
+.team-photo-hiring svg {
+  width: 54px;
+  height: 54px;
+  color: rgba(255,255,255,0.45);
+}
+.team-photo-hiring-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  padding: 0 20px;
+  text-align: center;
+}
+.team-card-hiring .team-role a { color: var(--accent); font-weight: 600; }
+.team-card-hiring .team-role a:hover { color: var(--accent-2); }
 .team-card h3 { font-size: 1rem; margin-bottom: 0.2em; }
 .team-role {
   font-size: 0.82rem;
@@ -1085,7 +1106,6 @@ a.reviews-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow); 
   .service-panel-grid { grid-template-columns: repeat(3, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .team-grid { grid-template-columns: repeat(3, 1fr); }
-  .team-card-lead { grid-column: span 1; grid-row: span 1; }
 }
 
 @media (max-width: 780px) {
