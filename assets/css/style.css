@@ -621,7 +621,7 @@ section.about { padding: 0; }
   max-height: 0;
   transition: max-height 0.45s ease;
 }
-.service-panel.open { max-height: 600px; }
+.service-panel.open { max-height: 1100px; }
 .service-panel-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1104,6 +1104,7 @@ a.reviews-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow); 
   .gallery-grid .gallery-item:nth-child(7) { grid-column: span 4; grid-row: span 2; }
   .gallery-preview-grid { grid-template-columns: repeat(3, 1fr); }
   .service-panel-grid { grid-template-columns: repeat(3, 1fr); }
+  .service-panel.open { max-height: 1700px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .team-grid { grid-template-columns: repeat(3, 1fr); }
 }
@@ -1125,7 +1126,7 @@ a.reviews-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow); 
   .service-row-body h3 { font-size: 1.4rem; }
   .service-row-body p { max-width: none; }
   .service-panel-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .service-panel.open { max-height: 1000px; }
+  .service-panel.open { max-height: 1800px; }
 }
 
 @media (max-width: 860px) {
