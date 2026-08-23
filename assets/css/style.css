@@ -319,50 +319,20 @@ section { position: relative; }
 
 .hero-anniversary {
   position: absolute;
-  top: 4px;
-  right: 0;
-  width: 136px;
-  height: 136px;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at 34% 28%, #ffffff 0%, #e2e2e6 24%, #b9b9c1 48%, #82828b 72%, #55555d 100%);
-  box-shadow: 0 14px 32px rgba(0,0,0,0.45), inset 0 2px 5px rgba(255,255,255,0.7), inset 0 -4px 8px rgba(0,0,0,0.35);
-  border: 2px solid rgba(255,255,255,0.55);
+  top: 8px;
+  right: 4%;
+  width: clamp(120px, 13vw, 190px);
+  height: auto;
+  filter: drop-shadow(0 10px 22px rgba(0,0,0,0.55));
+  pointer-events: none;
   z-index: 3;
-}
-.hero-anniversary-num {
-  font-family: var(--font-serif);
-  font-weight: 700;
-  font-size: 2.7rem;
-  line-height: 1;
-  color: #2b2b30;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.55);
-}
-.hero-anniversary-label {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #38383e;
-  margin-top: 3px;
-}
-.hero-anniversary-stars {
-  color: #a9790f;
-  font-size: 0.72rem;
-  letter-spacing: 1.5px;
-  margin-top: 5px;
 }
 @media (max-width: 900px) {
   .hero-anniversary {
     position: static;
-    width: 104px;
-    height: 104px;
-    margin-bottom: 20px;
+    width: 130px;
+    margin-bottom: 18px;
   }
-  .hero-anniversary-num { font-size: 2.1rem; }
 }
 
 .scroll-hint {
@@ -683,10 +653,25 @@ section.about { padding: 0; }
 
 /* ---------- CTA banner ---------- */
 .cta-banner {
-  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  position: relative;
+  overflow: hidden;
+  background-image: url('../img/renovation-parallax.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   padding: 70px 0;
   text-align: center;
   color: #fff;
+}
+.cta-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(123,79,176,0.9), rgba(93,58,138,0.9));
+  z-index: 1;
+}
+.cta-banner-inner { position: relative; z-index: 2; }
+@media (hover: none) and (pointer: coarse) {
+  .cta-banner { background-attachment: scroll; }
 }
 .cta-banner-inner h2 { color: #fff; font-size: clamp(1.8rem, 3vw, 2.4rem); }
 .cta-banner-inner p {
