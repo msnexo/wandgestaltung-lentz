@@ -666,7 +666,8 @@ section.about { padding: 0; }
 .cta-banner-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, rgba(123,79,176,0.9), rgba(93,58,138,0.9));
+  background: linear-gradient(120deg, rgba(123,79,176,0.6), rgba(93,58,138,0.62)),
+    linear-gradient(180deg, rgba(20,16,28,0.15) 0%, rgba(20,16,28,0.35) 100%);
   z-index: 1;
 }
 .cta-banner-inner { position: relative; z-index: 2; }
