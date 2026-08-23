@@ -909,6 +909,7 @@ a.reviews-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow); 
   margin: 0 auto;
   opacity: 0.9;
 }
+.partners-label-second { margin-top: 44px; }
 
 /* ---------- Contact ---------- */
 .contact { background: var(--paper); }
