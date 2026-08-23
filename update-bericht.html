@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lentz Update-Bericht</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/img/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8fc;
+    --surface: #ffffff;
+    --surface-2: #f3edf9;
+    --border: #e6ddf3;
+    --text: #241f2e;
+    --text-muted: #756a87;
+    --accent: #7b4fb0;
+    --accent-2: #5d3a8a;
+    --accent-tint: #f1e9fa;
+    --done: #2f9e6f;
+    --done-tint: #e4f5ec;
+    --shadow: 0 1px 2px rgba(36,31,46,0.04), 0 8px 24px -12px rgba(36,31,46,0.10);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #171220;
+      --surface: #201a2c;
+      --surface-2: #251f33;
+      --border: #362d47;
+      --text: #f3eefa;
+      --text-muted: #a89bc0;
+      --accent: #b895e6;
+      --accent-2: #8f6fce;
+      --accent-tint: #2c2340;
+      --done: #5ec99a;
+      --done-tint: #1e3128;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #171220;
+    --surface: #201a2c;
+    --surface-2: #251f33;
+    --border: #362d47;
+    --text: #f3eefa;
+    --text-muted: #a89bc0;
+    --accent: #b895e6;
+    --accent-2: #8f6fce;
+    --accent-tint: #2c2340;
+    --done: #5ec99a;
+    --done-tint: #1e3128;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 72px 28px 100px; }
+
+  header.top {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 56px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-tint);
+    padding: 6px 12px 6px 10px;
+    border-radius: 999px;
+  }
+  .kicker svg { width: 14px; height: 14px; flex-shrink: 0; }
+  h1 {
+    font-size: clamp(1.9rem, 4vw, 2.5rem);
+    font-weight: 800;
+    margin: 0;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  .lede { font-size: 1.05rem; color: var(--text-muted); max-width: 60ch; margin: 0; }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 6px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .meta-row strong { color: var(--text); font-weight: 600; }
+
+  .site-block { margin-bottom: 52px; }
+  .site-block:last-of-type { margin-bottom: 44px; }
+  .site-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .site-head h2 { font-size: 1.28rem; font-weight: 700; margin: 0; }
+  .site-head a {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease;
+  }
+  .site-head a:hover { border-color: var(--accent); }
+
+  .change-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .change-item {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 14px;
+    padding: 16px 18px;
+    border-radius: 12px;
+    transition: background 0.15s ease;
+  }
+  .change-item:hover { background: var(--surface-2); }
+  .check {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--done-tint);
+    color: var(--done);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .check svg { width: 12px; height: 12px; }
+  .change-item h3 {
+    font-size: 0.98rem;
+    font-weight: 600;
+    margin: 0 0 3px;
+  }
+  .change-item p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    margin: 0;
+    max-width: 64ch;
+  }
+
+  .note {
+    margin-top: 10px;
+    padding: 14px 16px;
+    background: var(--surface-2);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+  .note strong { color: var(--text); }
+
+  .links-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+  }
+  .links-block h2 { font-size: 1.1rem; font-weight: 700; margin: 0 0 18px; }
+  .link-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text);
+    border: 1px solid var(--border);
+    margin-bottom: 10px;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .link-card:last-child { margin-bottom: 0; }
+  .link-card:hover { border-color: var(--accent); transform: translateX(2px); }
+  .link-card-label { font-weight: 600; font-size: 0.95rem; }
+  .link-card-url { font-family: "JetBrains Mono", monospace; font-size: 0.76rem; color: var(--text-muted); margin-top: 2px; }
+  .link-card svg { width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; }
+
+  footer.end {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  @media (max-width: 560px) {
+    .wrap { padding: 48px 18px 72px; }
+    .change-item { grid-template-columns: 22px 1fr; padding: 14px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="top">
+    <span class="kicker">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      Session abgeschlossen
+    </span>
+    <h1>Update-Übersicht: Website &amp; Visitenkarten</h1>
+    <p class="lede">Zusammenfassung aller Änderungen, die heute an der Website und den digitalen Visitenkarten von Malereibetrieb Thorsten Lentz vorgenommen und live veröffentlicht wurden.</p>
+    <div class="meta-row">
+      <span>Datum: <strong>23. August 2026</strong></span>
+      <span>Seiten: <strong>3</strong></span>
+      <span>Änderungen: <strong>16</strong></span>
+    </div>
+  </header>
+
+  <section class="site-block">
+    <div class="site-head">
+      <h2>Hauptseite</h2>
+      <a href="https://msnexo.github.io/wandgestaltung-lentz/" target="_blank" rel="noopener">wandgestaltung-lentz →</a>
+    </div>
+    <div class="change-list">
+
+      <div class="change-item">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <div>
+          <h3>Doppelte Projektfotos entfernt</h3>
+          <p>10 Fotos waren unter verschiedenen Dateinamen doppelt in den Leistungen und der Galerie einsortiert (z.&nbsp;B. dasselbe Zebra-Tapete-Foto zweimal). Jetzt taucht jedes Bild nur noch einmal auf.</p>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <div>
+          <h3>Galerie neu aufgebaut</h3>
+          <p>Zeigt jetzt gebündelt alle Projektbilder aus den Leistungen statt einer separaten, teils doppelten Auswahl.</p>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <div>
+          <h3>„20 Jahre"-Siegel im Hero</h3>
+          <p>Das mitgelieferte Chrom-Logo wurde freigestellt und dezent neben der Überschrift platziert, ohne das Hintergrundvideo zu verdecken.</p>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <div>
+          <h3>Vorher/Nachher-Bildband</h3>
+          <p>Eigene Bildsektion mit Scroll-Parallax-Effekt (wie im „Über uns"-Bereich) direkt über dem „Bereit für Ihr Projekt?"-Banner.</p>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <div>
+          <h3>Cookie-Hinweisbanner</h3>
+          <p>Erscheint auf allen Seiten beim ersten Besuch, informiert transparent über genutzte Funktionen, verschwindet nach Bestätigung dauerhaft.</p>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <div>
+          <h3>Partner-Bereich neu geordnet</h3>
+          <p>„Unsere Premium-Partner" → <strong>Unsere Lieferanten</strong>. Neue zweite Logo-Reihe <strong>„Alles aus einer Hand"</strong> mit den Gewerke-Partnern (Tischler, Elektro, Handwerkskammer u.&nbsp;a.).</p>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <div>
+          <h3>Instagram-Icon in Originalfarben</h3>
+          <p>Einfarbiges Icon durch den bekannten Instagram-Farbverlauf ersetzt (Kontaktbereich &amp; Footer).</p>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <div>
+          <h3>Neuer FAQ-Bereich</h3>
+          <p>15 aufklappbare Fragen &amp; Antworten, verlinkt in Hauptmenü und Footer.</p>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <div>
+          <h3>6 neue Kundenstimmen</h3>
+          <p>Zum Referenzen-Karussell hinzugefügt; das Karussell wurde außerdem verbreitert, damit Karten nicht mehr mittendrin abgeschnitten wirken.</p>
+        </div>
+      </div>
+
+      <div class="change-item">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <div>
+          <h3>Team-Foto Thorsten Lentz aktualisiert</h3>
+          <p>Neues Foto im Team-Bereich, passend zur digitalen Visitenkarte.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="note"><strong>Hinweis:</strong> Die neuen Kundenstimmen sind als „Kundenbewertung" gekennzeichnet, nicht als „Google", da keine Bewertungsplattform dafür angegeben wurde. Bei Bedarf gerne korrigieren.</div>
+  </section>
+
+  <section class="site-block">
+    <div class="site-head">
+      <h2>Visitenkarte — Thorsten Lentz</h2>
+      <a href="https://msnexo.github.io/lentz-visitenkarte/" target="_blank" rel="noopener">lentz-visitenkarte →</a>
+    </div>
+    <div class="change-list">
+      <div class="change-item">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <div>
+          <h3>Foto ausgetauscht</h3>
+          <p>Neues Porträt eingebaut (dasselbe wie auf der Hauptseite im Team-Bereich).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="site-block">
+    <div class="site-head">
+      <h2>Visitenkarte — Andreas Lentz</h2>
+      <a href="https://msnexo.github.io/lentz-visitenkarte/andreas.html" target="_blank" rel="noopener">…/andreas.html →</a>
+    </div>
+    <div class="change-list">
+      <div class="change-item">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <div>
+          <h3>Foto-Zuschnitt korrigiert</h3>
+          <p>Der Kopf war durch die runden Ecken der Karte zu knapp abgeschnitten. Bild neu aufbereitet mit Freiraum oben.</p>
+        </div>
+      </div>
+      <div class="change-item">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <div>
+          <h3>Persönliche Kontaktdaten hinterlegt</h3>
+          <p>Anrufen-Button, WhatsApp, E-Mail-Icon, Detailliste und „In Kontakte speichern" nutzen jetzt Andreas' eigene Nummer <span class="mono">0172&nbsp;277&nbsp;4862</span> und E-Mail <span class="mono">andreas1126@web.de</span> statt der zentralen Büro-Kontaktdaten.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="links-block">
+    <h2>Alle drei Links</h2>
+    <a class="link-card" href="https://msnexo.github.io/wandgestaltung-lentz/" target="_blank" rel="noopener">
+      <div>
+        <div class="link-card-label">Hauptseite</div>
+        <div class="link-card-url">msnexo.github.io/wandgestaltung-lentz</div>
+      </div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+    <a class="link-card" href="https://msnexo.github.io/lentz-visitenkarte/" target="_blank" rel="noopener">
+      <div>
+        <div class="link-card-label">Visitenkarte — Thorsten Lentz</div>
+        <div class="link-card-url">msnexo.github.io/lentz-visitenkarte</div>
+      </div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+    <a class="link-card" href="https://msnexo.github.io/lentz-visitenkarte/andreas.html" target="_blank" rel="noopener">
+      <div>
+        <div class="link-card-label">Visitenkarte — Andreas Lentz</div>
+        <div class="link-card-url">msnexo.github.io/lentz-visitenkarte/andreas.html</div>
+      </div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+  </section>
+
+  <footer class="end">
+    <span>Alle Änderungen sind bereits live.</span>
+    <span>Malereibetrieb Thorsten Lentz</span>
+  </footer>
+
+</div>
+</body>
+</html>
