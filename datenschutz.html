@@ -59,7 +59,7 @@
   <p>Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren.</p>
 
   <h2>6. Cookies</h2>
-  <p>Diese Website verwendet derzeit keine Analyse- oder Marketing-Cookies. Sollte sich dies ändern, wird diese Erklärung entsprechend aktualisiert und ggf. ein Cookie-Consent-Banner ergänzt.</p>
+  <p>Diese Website verwendet derzeit keine Analyse- oder Marketing-Cookies. Der beim ersten Besuch eingeblendete Hinweis-Banner speichert lediglich lokal in Ihrem Browser (Local Storage), dass Sie ihn zur Kenntnis genommen haben, damit er nicht erneut erscheint. Sollten künftig Analyse- oder Marketing-Cookies eingesetzt werden, wird diese Erklärung entsprechend aktualisiert.</p>
 
   <h2>7. SSL-/TLS-Verschlüsselung</h2>
   <p>Diese Seite nutzt aus Sicherheitsgründen eine SSL-/TLS-Verschlüsselung zur Übertragung vertraulicher Inhalte, erkennbar an „https://“ in der Adresszeile Ihres Browsers.</p>
@@ -77,6 +77,16 @@
   </div>
 </footer>
 
+<div class="cookie-banner" id="cookieBanner">
+  <div class="container cookie-banner-inner">
+    <p class="cookie-banner-text">Diese Website verwendet nur technisch notwendige Funktionen und lädt Schriftarten von Google Fonts nach. Es werden keine Analyse- oder Marketing-Cookies eingesetzt. Mehr dazu in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn btn-accent" id="cookieAccept">Verstanden</button>
+    </div>
+  </div>
+</div>
+
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="assets/js/cookie-consent.js"></script>
 </body>
 </html>

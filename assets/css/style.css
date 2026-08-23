@@ -1063,6 +1063,36 @@ a.reviews-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow); 
 .footer-legal { display: flex; gap: 20px; }
 .footer-legal a:hover { color: #fff; }
 
+/* ---------- Cookie banner ---------- */
+.cookie-banner {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 200;
+  transform: translateY(120%);
+  transition: transform 0.4s ease;
+  background: var(--dark);
+  color: rgba(247,244,238,0.92);
+  box-shadow: 0 -12px 30px rgba(0,0,0,0.35);
+}
+.cookie-banner.open { transform: translateY(0); }
+.cookie-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 0;
+  flex-wrap: wrap;
+}
+.cookie-banner-text { flex: 1 1 420px; font-size: 0.9rem; line-height: 1.55; }
+.cookie-banner-text a { color: #e6d5f7; text-decoration: underline; }
+.cookie-banner-actions { flex-shrink: 0; }
+@media (max-width: 768px) {
+  .cookie-banner { bottom: 54px; }
+  .cookie-banner-inner { padding: 16px 0; }
+  .cookie-banner-actions { width: 100%; }
+  .cookie-banner-actions .btn { width: 100%; }
+}
+
 /* ---------- Mobile call bar ---------- */
 .mobile-call-bar {
   display: none;
