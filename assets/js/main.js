@@ -93,6 +93,26 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  /* ---------- FAQ accordion ---------- */
+  document.querySelectorAll('.faq-question').forEach(function (btn) {
+    var item = btn.closest('.faq-item');
+    var answer = item.querySelector('.faq-answer');
+    btn.addEventListener('click', function () {
+      var willOpen = !answer.classList.contains('open');
+      document.querySelectorAll('.faq-answer.open').forEach(function (a) {
+        if (a !== answer) {
+          a.classList.remove('open');
+          var otherItem = a.closest('.faq-item');
+          otherItem.classList.remove('open');
+          otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        }
+      });
+      answer.classList.toggle('open', willOpen);
+      item.classList.toggle('open', willOpen);
+      btn.setAttribute('aria-expanded', String(willOpen));
+    });
+  });
+
   /* ---------- Reviews carousel ---------- */
   var reviewsCarousel = document.getElementById('reviewsCarousel');
   var reviewsPrev = document.getElementById('reviewsPrev');

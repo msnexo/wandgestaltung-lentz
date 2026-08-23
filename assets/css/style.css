@@ -892,6 +892,83 @@ a.reviews-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow); 
 .reviews-more a { font-weight: 600; color: var(--accent); }
 .reviews-more a:hover { color: var(--accent-2); }
 
+/* ---------- FAQ ---------- */
+.faq { background: var(--paper); padding: 110px 0; }
+.faq-list {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--cream);
+  overflow: hidden;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.faq-item.open {
+  background: var(--paper);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-sm);
+}
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px 24px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--text);
+}
+.faq-question .chevron {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+.faq-question .chevron::before,
+.faq-question .chevron::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  background: currentColor;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.faq-question .chevron::before { width: 9px; height: 1.5px; transform: translate(-50%,-50%); }
+.faq-question .chevron::after { width: 1.5px; height: 9px; transform: translate(-50%,-50%); }
+.faq-question[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+.faq-question[aria-expanded="true"] .chevron::after { opacity: 0; }
+.faq-answer {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.45s ease;
+}
+.faq-answer.open { max-height: 900px; }
+.faq-answer-inner {
+  padding: 0 24px 22px;
+  color: var(--text-muted);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+.faq-answer-inner p { margin: 0 0 12px; }
+.faq-answer-inner p:last-child { margin-bottom: 0; }
+.faq-answer-inner ul { margin: 4px 0 12px; padding-left: 20px; }
+.faq-answer-inner li { margin-bottom: 6px; }
+.faq-answer-inner li:last-child { margin-bottom: 0; }
+
 /* ---------- Partners ---------- */
 .partners-label {
   text-align: center;
