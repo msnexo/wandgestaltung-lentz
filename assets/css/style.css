@@ -653,28 +653,34 @@ section.about { padding: 0; }
 
 /* ---------- CTA banner ---------- */
 .cta-banner {
-  position: relative;
-  overflow: hidden;
-  background-image: url('../img/renovation-parallax.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
   padding: 70px 0;
   text-align: center;
   color: #fff;
 }
-.cta-banner-overlay {
+.cta-banner-inner h2 { color: #fff; font-size: clamp(1.8rem, 3vw, 2.4rem); }
+
+/* ---------- Renovation parallax band ---------- */
+.renovation-parallax {
+  height: 52vh;
+  min-height: 340px;
+  background-image: url('../img/renovation-parallax.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+.renovation-parallax-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, rgba(123,79,176,0.6), rgba(93,58,138,0.62)),
-    linear-gradient(180deg, rgba(20,16,28,0.15) 0%, rgba(20,16,28,0.35) 100%);
-  z-index: 1;
+  background: linear-gradient(180deg, rgba(28,23,39,0.1) 0%, rgba(28,23,39,0.05) 45%, rgba(28,23,39,0.35) 100%);
 }
-.cta-banner-inner { position: relative; z-index: 2; }
 @media (hover: none) and (pointer: coarse) {
-  .cta-banner { background-attachment: scroll; }
+  .renovation-parallax { background-attachment: scroll; }
 }
-.cta-banner-inner h2 { color: #fff; font-size: clamp(1.8rem, 3vw, 2.4rem); }
+@media (max-width: 768px) {
+  .renovation-parallax { background-attachment: scroll; height: 38vh; min-height: 240px; }
+}
 .cta-banner-inner p {
   max-width: 560px;
   margin: 0 auto 1.6em;
