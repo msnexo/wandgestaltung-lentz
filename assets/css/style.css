@@ -662,12 +662,10 @@ section.about { padding: 0; }
 
 /* ---------- Renovation parallax band ---------- */
 .renovation-parallax {
-  height: 60vh;
-  min-height: 440px;
-  background-color: var(--dark);
+  height: 92vh;
+  min-height: 680px;
   background-image: url('../img/renovation-parallax.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
   background-attachment: fixed;
   position: relative;
@@ -681,7 +679,7 @@ section.about { padding: 0; }
   .renovation-parallax { background-attachment: scroll; }
 }
 @media (max-width: 768px) {
-  .renovation-parallax { background-attachment: scroll; height: 40vh; min-height: 260px; }
+  .renovation-parallax { background-attachment: scroll; height: 56vh; min-height: 380px; }
 }
 .cta-banner-inner p {
   max-width: 560px;
