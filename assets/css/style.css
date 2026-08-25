@@ -991,6 +991,29 @@ a.reviews-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow); 
   opacity: 0.9;
 }
 .partners-label-second { margin-top: 44px; }
+.partners-logo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 32px 44px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.partners-logo-grid a {
+  display: flex;
+  align-items: center;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.partners-logo-grid a:hover { opacity: 1; transform: translateY(-2px); }
+.partners-logo-grid img {
+  display: block;
+  height: 44px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+}
 
 /* ---------- Contact ---------- */
 .contact { background: var(--paper); }
