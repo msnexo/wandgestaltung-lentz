@@ -1198,6 +1198,77 @@ a.reviews-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow); 
   .cookie-banner-actions .btn { width: 100%; }
 }
 
+/* ---------- WhatsApp float button ---------- */
+.whatsapp-float {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 22px 10px 10px;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.whatsapp-float:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.32);
+  color: #fff;
+}
+.whatsapp-float::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 999px;
+  border: 2px solid rgba(37,211,102,0.55);
+  animation: wa-pulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes wa-pulse {
+  0% { transform: scale(0.92); opacity: 0.8; }
+  70% { transform: scale(1.14); opacity: 0; }
+  100% { opacity: 0; }
+}
+.whatsapp-float-icon {
+  width: 46px;
+  height: 46px;
+  background: rgba(255,255,255,0.16);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.whatsapp-float-text {
+  line-height: 1.25;
+  font-weight: 600;
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+.whatsapp-float-text small {
+  display: block;
+  font-weight: 500;
+  font-size: 0.78rem;
+  opacity: 0.92;
+}
+@media (max-width: 860px) {
+  .whatsapp-float {
+    right: 16px;
+    bottom: 74px;
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    justify-content: center;
+  }
+  .whatsapp-float-icon { width: 56px; height: 56px; background: transparent; }
+  .whatsapp-float-text { display: none; }
+}
+
 /* ---------- Mobile call bar ---------- */
 .mobile-call-bar {
   display: none;
