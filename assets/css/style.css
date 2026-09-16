@@ -1433,6 +1433,9 @@ a.reviews-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow); 
   margin: 0 auto;
   padding: 70px 24px 110px;
 }
+@media (max-width: 860px) {
+  .legal-content { padding-right: 84px; }
+}
 .legal-content h2 {
   font-size: 1.3rem;
   margin-top: 2em;
