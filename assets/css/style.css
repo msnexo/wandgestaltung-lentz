@@ -198,7 +198,7 @@ section { position: relative; }
 .hero .site-header,
 .site-header:not(.scrolled) .brand-text { color: #fff; }
 .site-header:not(.scrolled) .brand-text { color: #fff; }
-.site-header:not(.scrolled) .brand-text small { color: #d9c2f2; }
+.site-header:not(.scrolled) .brand-text small { color: var(--accent); }
 .site-header:not(.scrolled) .main-nav a { color: rgba(255,255,255,0.92); }
 
 .main-nav {
@@ -298,13 +298,13 @@ section { position: relative; }
   padding-bottom: 90px;
   max-width: 880px;
 }
-.hero .eyebrow { color: #d9c2f2; }
+.hero .eyebrow { color: var(--accent); }
 .hero h1 {
   color: #fff;
   font-size: clamp(2.3rem, 5.2vw, 4rem);
   margin-bottom: 0.4em;
 }
-.hero h1 span { color: #e6d5f7; }
+.hero h1 span { color: var(--accent); }
 .hero-sub {
   color: rgba(255,255,255,0.88);
   font-size: 1.15rem;
@@ -822,7 +822,7 @@ a.reviews-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow); 
   scroll-snap-type: x proximity;
   padding: 4px 4px 16px;
   scrollbar-width: thin;
-  scrollbar-color: var(--lilac) transparent;
+  scrollbar-color: var(--accent) transparent;
 }
 .review-card {
   flex: 0 0 300px;
@@ -1189,7 +1189,7 @@ a.reviews-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow); 
   flex-wrap: wrap;
 }
 .cookie-banner-text { flex: 1 1 420px; font-size: 0.9rem; line-height: 1.55; }
-.cookie-banner-text a { color: #e6d5f7; text-decoration: underline; }
+.cookie-banner-text a { color: var(--accent); text-decoration: underline; }
 .cookie-banner-actions { flex-shrink: 0; }
 @media (max-width: 768px) {
   .cookie-banner { bottom: 54px; }
